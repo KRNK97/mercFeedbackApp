@@ -1,0 +1,33 @@
+img.main-img{
+    height: 12rem;
+    width: 20rem;
+}
+
+textarea.text-field{
+    height: 150px;
+}
+
+body{
+    font-family: Roboto;
+    font-weight: 500;
+}
+
+a{
+    font-family: Roboto;
+}
+
+i{
+    
+}
+
+.full-h{
+    min-height: 100vh;
+}
+
+@media(max-width:400px){
+img.main-img{
+    height: 9rem;
+    width: 16rem;
+}
+
+}

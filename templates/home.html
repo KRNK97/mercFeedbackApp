@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="d-flex  justify-content-center p-2">
+        <img src="../static/merc.png" alt="" class="main-img img-fluid">
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger mt-4">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    <div class="form-container mt-4  py-2   border-bottom border-dark">
+    <form action="/submit" method="POST">
+
+        <div class="form-group">
+        <label for="customer_name">Customer Name</label>
+        <input type="text" name="customer_name" id="customer_name" class="form-control text-regular" placeholder="Enter customer name" >
+        </div>
+
+        <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" class="form-control text-regular" placeholder="Enter email" >
+        </div>
+
+        <div class="form-group">
+        <label for="dealer">Select Your Dealer</label>
+        <select name="dealer" id="dealer" class="form-control custom-select">
+            <option value="" class="text-regular">Select dealer...</option>
+            <option value="Daisy Shaw">Daisy Shaw</option>
+            <option value="Mathew Perry">Mathew Perry</option>
+            <option value="Joanna Sheffield">Joanna Sheffield</option>
+            <option value="Alex Grump">Alex Grump</option>
+        </select>
+        </div>
+        
+        <div class="form-group">
+        <label for="rating">Please Rate Your Dealer</label>
+        <br>
+
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="1"> 1
+        </div>
+
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="2"> 2
+        </div>
+
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="3"> 3
+        </div>
+    
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="4"> 4
+        </div>
+        
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="5"> 5
+        </div>
+        
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="6"> 6
+        </div>
+        
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="7"> 7
+        </div>
+            
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="8"> 8
+        </div>
+
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="9"> 9
+        </div>
+                
+        <div class="input-group-text d-inline-block mt-1 mx-1 p-2 rounded-pill">
+        <input type="radio" name="rating" value="10" checked> 10
+        </div>
+        
+            
+
+    
+        </div>
+        
+        <div class="form-group">
+        <label for="comment">Comment Your Experience</label>
+        <textarea name="comment" id="comment" class="text-field form-control" placeholder="Tell us what you liked . . ."></textarea>
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-dark btn-block">
+        </div>
+
+    </form>
+    </div>
+
+
+</div>
+
+{% endblock %}
