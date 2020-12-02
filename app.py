@@ -5,6 +5,7 @@ from flask import Flask,get_flashed_messages,redirect,render_template,request,ur
 from flask_sqlalchemy import SQLAlchemy
 from send_mail import send_mail
 
+
 app = Flask(__name__)
 
 
@@ -12,30 +13,31 @@ ENV = 'prod'
 
 if ENV =='dev':
     app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:gopinath@localhost/mercedes' 
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:xyz@localhost/mercedes' 
 
 else:
     app.debug = False
     app.config['SECRET_KEY'] = 'secret'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ftxvmnkkshojjs:b98df8eaa9edb698259f9711f080a2378166f260f4fdc36729659c422aaa9a87@ec2-3-210-23-22.compute-1.amazonaws.com:5432/d5cvra34a1lk01'
 
+    
 # suppress warnings {optional}
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
 
+########### Not Used ##############
 # class feedbackForm(FlaskForm):
 #     customer_name = StringField('Customer Name',validators=[DataRequired()])
-
 #     dealer = SelectField('Dealer',validators=[DataRequired()])
-
 #     rating = RadioField('Please rate your dealer',validators=[DataRequired()])
-
 #     comment = TextAreaField('Comment your experience') 
-
 #     submit = SubmitField('Submit')    
 
+
+
+######### Model ##############
 class Feedback(db.Model):
     __tablename__ = 'feedback'
     id = db.Column(db.Integer,primary_key=True,nullable=False)
@@ -53,14 +55,13 @@ class Feedback(db.Model):
         self.comment = comment
 
 
-
+########### Routes #############3
 @app.route('/',methods=['GET','POST'])
 def home():
     return render_template('home.html')
 
 @app.route('/success',methods=['GET'])
 def success():
-
     return render_template('success.html')
 
 @app.route('/submit',methods=['POST'])
@@ -101,16 +102,6 @@ def submit():
         flash('Customer name is required !')
         return redirect('/')
 
-            
-
-            
-
-
-
-
-
-
-
-
+############# Run App #############
 if __name__ == '__main__':
     app.run()
