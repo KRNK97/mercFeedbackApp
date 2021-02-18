@@ -13,12 +13,12 @@ ENV = 'prod'
 
 if ENV =='dev':
     app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:xyz@localhost/mercedes' 
+    app.config['SQLALCHEMY_DATABASE_URI'] = '' 
 
 else:
     app.debug = False
     app.config['SECRET_KEY'] = 'secret'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ftxvmnkkshojjs:b98df8eaa9edb698259f9711f080a2378166f260f4fdc36729659c422aaa9a87@ec2-3-210-23-22.compute-1.amazonaws.com:5432/d5cvra34a1lk01'
+    app.config['SQLALCHEMY_DATABASE_URI'] = ''
 
     
 # suppress warnings {optional}
